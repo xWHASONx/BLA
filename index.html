@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuenta de Cobro - Cyan Travel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cyan: #0088aa;
+            --dark: #111111;
+            --gray: #f4f7f9;
+            --text: #333333;
+            --white: #ffffff;
+            --border: #e2e8f0;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #eef2f5;
+            color: var(--text);
+        }
+        .invoice-box {
+            max-width: 800px;
+            margin: 40px auto;
+            background: var(--white);
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 3px solid var(--cyan);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .header-left h1 {
+            margin: 0;
+            font-size: 32px;
+            color: var(--dark);
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+        .header-left p {
+            margin: 5px 0 0 0;
+            color: var(--cyan);
+            font-weight: 600;
+            font-size: 16px;
+        }
+        .header-right {
+            text-align: right;
+        }
+        .header-right img {
+            max-width: 180px;
+            margin-bottom: 10px;
+        }
+        .info-section {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+        .info-block {
+            width: 48%;
+        }
+        .info-block h3 {
+            font-size: 14px;
+            color: #888;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 5px;
+        }
+        .info-block p {
+            margin: 4px 0;
+            font-size: 15px;
+            color: var(--dark);
+        }
+        .info-block strong {
+            font-weight: 600;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+        th {
+            background-color: var(--dark);
+            color: var(--white);
+            text-align: left;
+            padding: 12px 15px;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+        td {
+            padding: 15px;
+            border-bottom: 1px solid var(--border);
+            font-size: 15px;
+            color: var(--dark);
+        }
+        .item-desc {
+            font-weight: 600;
+            color: var(--cyan);
+            margin-bottom: 5px;
+            display: block;
+        }
+        .item-details {
+            font-size: 13px;
+            color: #666;
+        }
+        .text-right {
+            text-align: right;
+        }
+        .totals {
+            width: 50%;
+            float: right;
+            margin-bottom: 40px;
+        }
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 15px;
+            font-size: 16px;
+        }
+        .total-row.grand-total {
+            background-color: var(--cyan);
+            color: var(--white);
+            font-weight: 800;
+            font-size: 20px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+        .amount-words {
+            clear: both;
+            background-color: var(--gray);
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 40px;
+            border-left: 4px solid var(--cyan);
+        }
+        .payment-info {
+            margin-bottom: 50px;
+        }
+        .payment-info h3 {
+            font-size: 16px;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+        .payment-box {
+            background-color: var(--gray);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .signature-section {
+            margin-top: 60px;
+            width: 300px;
+            text-align: center;
+        }
+        .signature-line {
+            border-top: 1px solid var(--dark);
+            margin-bottom: 10px;
+        }
+        .signature-section p {
+            margin: 2px 0;
+            font-size: 14px;
+            color: var(--dark);
+        }
+        
+        /* Estilos para impresión (PDF) */
+        @media print {
+            body { background-color: white; }
+            .invoice-box { box-shadow: none; margin: 0; padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="invoice-box">
+    <div class="header">
+        <div class="header-left">
+            <h1>CUENTA DE COBRO</h1>
+            <p>N° 001</p>
+        </div>
+        <div class="header-right">
+            <p style="color: #888; font-size: 14px; margin: 0;">Fecha de emisión:</p>
+            <p style="font-weight: 600; margin: 5px 0 0 0; color: var(--dark);">19 de Marzo de 2026</p>
+        </div>
+    </div>
+
+    <div class="info-section">
+        <div class="info-block">
+            <h3>De (Contratista):</h3>
+            <p><strong>[TU NOMBRE COMPLETO]</strong></p>
+            <p>C.C. [TU NÚMERO DE CÉDULA]</p>
+            <p>Cel: [TU NÚMERO DE CELULAR]</p>
+            <p>Correo:[TU CORREO ELECTRÓNICO]</p>
+        </div>
+        <div class="info-block">
+            <h3>Para (Cliente):</h3>
+            <img src="https://i.imgur.com/eEB6RKa.png" alt="Cyan Travel" style="max-width: 150px; margin-bottom: 10px; display: block;">
+            <p><strong>CYAN TRAVEL</strong></p>
+            <p>Cel: +57 305 4466406</p>
+            <p>Correo: Reservas@cyantravel.co</p>
+        </div>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Descripción del Servicio</th>
+                <th class="text-right">Valor Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <span class="item-desc">Desarrollo de Software Generador de Cotizaciones Pro</span>
+                    <span class="item-details">
+                        - Aplicación Web Progresiva (PWA) a la medida.<br>
+                        - Integración de Base de Datos en la nube (Firebase).<br>
+                        - Módulos dinámicos: Cruceros, Hoteles, Vuelos, Tours y Traslados.<br>
+                        - Motor de renderizado PDF nativo con diseño corporativo.<br>
+                        - Algoritmo de compresión de imágenes y conexión API TRM.
+                    </span>
+                </td>
+                <td class="text-right" style="vertical-align: top; font-weight: 600;">$ 1.500.000</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="totals">
+        <div class="total-row">
+            <span>Subtotal:</span>
+            <span>$ 1.500.000</span>
+        </div>
+        <div class="total-row grand-total">
+            <span>TOTAL A PAGAR:</span>
+            <span>$ 1.500.000</span>
+        </div>
+    </div>
+
+    <div class="amount-words">
+        SON: UN MILLÓN QUINIENTOS MIL PESOS M/CTE.
+    </div>
+
+    <div class="payment-info">
+        <h3>Información para el pago:</h3>
+        <div class="payment-box">
+            Por favor realizar el pago a través de transferencia bancaria a la siguiente cuenta:<br><br>
+            <strong>Banco:</strong>[NOMBRE DEL BANCO EJ: Bancolombia]<br>
+            <strong>Tipo de Cuenta:</strong> [Ahorros / Corriente]<br>
+            <strong>Número de Cuenta:</strong> [NÚMERO DE TU CUENTA]<br>
+            <strong>Titular:</strong> [TU NOMBRE COMPLETO]<br>
+            <strong>C.C:</strong>[TU NÚMERO DE CÉDULA]<br><br>
+            <em>* También se acepta pago vía Nequi / Daviplata al número: [TU CELULAR]</em>
+        </div>
+    </div>
+
+    <div class="signature-section">
+        <div class="signature-line"></div>
+        <p><strong>[TU NOMBRE COMPLETO]</strong></p>
+        <p>C.C. [TU NÚMERO DE CÉDULA]</p>
+    </div>
+</div>
+
+</body>
+</html>
